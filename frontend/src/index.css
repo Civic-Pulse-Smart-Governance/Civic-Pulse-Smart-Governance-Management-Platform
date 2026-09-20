@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary & Brand Colors */
+  --primary-blue: #1565C0;
+  --primary-blue-dark: #0D47A1;
+  --primary-blue-light: #1E88E5;
+  --primary-blue-bg: #E3F2FD;
+
+  /* Secondary & Accent Colors */
+  --secondary-green: #2E7D32;
+  --secondary-green-dark: #1B5E20;
+  --secondary-green-light: #43A047;
+  --secondary-green-bg: #E8F5E9;
+
+  /* Neutral & Base Colors */
+  --bg-main: #F5F7FA;
+  --bg-card: #FFFFFF;
+  --bg-alt: #EDF2F7;
+  --border-light: #E2E8F0;
+  --border-focus: #90CAF9;
+
+  /* Typography Colors */
+  --text-main: #1F2937;
+  --text-muted: #4B5563;
+  --text-light: #9CA3AF;
+  --text-white: #FFFFFF;
+
+  /* Status Colors */
+  --status-pending: #F59E0B;
+  --status-active: #3B82F6;
+  --status-resolved: #2E7D32;
+  --status-urgent: #EF4444;
+
+  /* Fonts & Shadows */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', 'Inter', sans-serif;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(21, 101, 192, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* Radius & Spacing */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Navy scale — dark sidebars (Admin/Officer) */
+  --color-navy-950: #0a1122;
+  --color-navy-900: #0d1b34;
+  --color-navy-800: #122544;
+  --color-navy-700: #182f56;
+  --color-navy-600: #1e3a6b;
+
+  /* Brand blue — headers, primary actions, active nav */
+  --color-brand-50:  #eaf0fd;
+  --color-brand-100: #d3e0fb;
+  --color-brand-500: #2f5fda;
+  --color-brand-600: #2952c4;
+  --color-brand-700: #1e3f99;
+  --color-brand-800: #16305e;
+  --color-brand-900: #101f3d;
+
+  /* Status colors */
+  --color-status-pending-bg: #fef3c7;
+  --color-status-pending-text: #92400e;
+  --color-status-progress-bg: #ede9fe;
+  --color-status-progress-text: #5b21b6;
+  --color-status-resolved-bg: #d1fae5;
+  --color-status-resolved-text: #065f46;
+  --color-status-rejected-bg: #fee2e2;
+  --color-status-rejected-text: #991b1b;
+
+  --color-surface: #f4f6fb;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: var(--font-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.section-padding {
+  padding: 5.5rem 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: var(--primary-blue-bg);
+  color: var(--primary-blue);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 4px rgba(21, 101, 192, 0.08);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.section-title span {
+  color: var(--primary-blue);
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--text-white);
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(21, 101, 192, 0.35);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-green);
+  color: var(--text-white);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.22);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 125, 50, 0.32);
+}
+
+.btn-outline {
+  border: 2px solid var(--primary-blue);
+  color: var(--primary-blue);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-blue-bg);
+  color: var(--primary-blue-dark);
+  transform: translateY(-2px);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 23, 42, 0.18);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+

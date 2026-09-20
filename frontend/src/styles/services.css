@@ -1,0 +1,133 @@
+/* Services / Categories Styling */
+.services-section {
+  background-color: var(--bg-main);
+  position: relative;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--secondary-green));
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(21, 101, 192, 0.2);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon-wrapper {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background-color: var(--primary-blue-bg);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.85rem;
+  margin-bottom: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.service-card:hover .service-icon-wrapper {
+  background: linear-gradient(135deg, var(--primary-blue), #0D47A1);
+  color: white;
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 8px 16px rgba(21, 101, 192, 0.3);
+}
+
+/* Green theme variant for Sanitation/Water */
+.service-card.green-accent .service-icon-wrapper {
+  background-color: var(--secondary-green-bg);
+  color: var(--secondary-green);
+}
+
+.service-card.green-accent:hover .service-icon-wrapper {
+  background: linear-gradient(135deg, var(--secondary-green), #1B5E20);
+  color: white;
+  box-shadow: 0 8px 16px rgba(46, 125, 50, 0.3);
+}
+
+.service-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.6rem;
+}
+
+.service-description {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.service-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  background-color: var(--primary-blue-bg);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.service-card:hover .service-action-btn {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
